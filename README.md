@@ -1,2 +1,2 @@
 # flappy-bird-game
-Flappy Bird Game using JavaScript.
+Vanilla JavaScript Flappy Bird with Particle Effects & Sprites.
