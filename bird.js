@@ -1,6 +1,6 @@
 class Bird {
     constructor() {
-        this.x = 150;
+        this.x = 100;
         this.y = 200;
         this.vy = 0;
         this.width = 20;
@@ -9,8 +9,21 @@ class Bird {
 
     }
     update() {
-        this.vy += this.weidth;
-        this.y += this.vy;
+        let curve = Math.sin(angel) * 10;
+        if (this.y > canvas.height - (this.height * 3) + curve) {
+            this.y = canvas.height - (this.height * 3) + curve;
+            this.vy = 0;
+        }
+        else {
+            this.vy += this.weidth;
+            this.vy *= 0.9;
+            this.y += this.vy;
+        }
+        if (this.y < this.height) {
+            this.y = this.height;
+            this.vy = 0;
+        }
+        if (spacePressed && this.y > (this.height * 3)) this.flap();
     }
     draw() {
         ctx.fillStyle = 'red';
